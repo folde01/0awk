@@ -1,5 +1,15 @@
 working from http://www.catonmat.net/blog/ten-awk-tips-tricks-and-pitfalls/
 
+# builtin variables:
+
+    FS field sep
+    RS record sep
+    ORS output RS
+    OFS output FS
+    NR number of records counted so far
+    FNR number of records counted so far in current file
+
+
 jo@bsmlx23:~$ echo -e '1pattern2\n34'
 1pattern2
 34
@@ -7,8 +17,29 @@ jo@bsmlx23:~$ echo -e '1pattern2\n34'
 jo@bsmlx23:~$ echo -e '1pattern2\n34' | awk '{if ($0 ~ /pattern/) print $0}'
 1pattern2
 
-jo@bsmlx23:~$ 
+# condition { actions }
 
+jo@bsmlx23:~/0awk$ echo -e '1pattern2\n34' | awk '$0 ~ /pattern/ {print $0}'
+1pattern2
 
+jo@bsmlx23:~/0awk$ echo -e '1pattern2\n34' | awk '/pattern/ {print $0}'
+1pattern2
 
+jo@bsmlx23:~/0awk$ echo -e '1pattern2\n34' | awk '/pattern/ {print}'
+1pattern2
 
+jo@bsmlx23:~/0awk$ echo -e '1pattern2\n34' | awk '/pattern/'
+1pattern2
+
+# print even lines matching pattern1 and odd lines matching pattern2:
+
+jo@bsmlx23:~/0awk$ echo -e 'line1pattern1\nline2\nline3\nline4pattern2'
+line1pattern1
+line2
+line3
+line4pattern2
+
+jo@bsmlx23:~/0awk$ echo -e 'line1pattern1\nline2\nline3\nline4pattern2' | awk '(NR % 2 && /pattern1/) || (!(NR % 2) && /pattern2/)'  
+line1pattern1
+line4pattern2
+ 
