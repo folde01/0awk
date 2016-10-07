@@ -1,4 +1,14 @@
 working from http://www.catonmat.net/blog/ten-awk-tips-tricks-and-pitfalls/
 
+jo@bsmlx23:~$ echo -e '1pattern2\n34'
+1pattern2
+34
+
+jo@bsmlx23:~$ echo -e '1pattern2\n34' | awk '{if ($0 ~ /pattern/) print $0}'
+1pattern2
+
+jo@bsmlx23:~$ 
+
+
 
 
