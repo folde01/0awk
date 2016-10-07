@@ -1,0 +1,4 @@
+working from http://www.catonmat.net/blog/ten-awk-tips-tricks-and-pitfalls/
+
+
+
