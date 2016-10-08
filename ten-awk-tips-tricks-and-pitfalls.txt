@@ -43,3 +43,4 @@ jo@bsmlx23:~/0awk$ echo -e 'line1pattern1\nline2\nline3\nline4pattern2' | awk '(
 line1pattern1
 line4pattern2
  
+# new!!
